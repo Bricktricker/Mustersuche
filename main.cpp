@@ -4,8 +4,10 @@
 #include <random>
 #include <benchmark/benchmark.h>
 
-// Länge des generierten Textes
+// LÃ¤nge des generierten Textes
 #define TEXT_LENGTH 8000000
+// Anzahl unterschiedlicher Zeichen im generierten Text
+#define ALPHABET_SIZE 255
 
 //Wird aufgerufen, wenn das Muster im Text gefunden wurde
 // Platzhaltermethode
@@ -36,7 +38,7 @@ static void horspool(const std::vector<uint8_t>& P, const std::vector<uint8_t>& 
 		if (last >= n) {
 			break;
 		}
-		if (memcmp(T.data() + last - m + 1, P.data(), m - 1) == 0) { //Rest des Textes überprüfen
+		if (memcmp(T.data() + last - m + 1, P.data(), m - 1) == 0) { //Rest des Textes Ã¼berprÃ¼fen
 			hit(last - m + 1, last + 1);
 		}
 		last += shifts[last_P];
@@ -105,11 +107,12 @@ static void bndm(const std::vector<uint8_t>& P, const std::vector<uint8_t>& T) {
 
 ///////////////////// Benchmark Methoden ////////////////////////////
 
-// füllt T mit TEXT_LENGTH Anzahl zufälliger bytes
-// wählt ein zufälliges 'patternLength' langes Muster aus T und speichert es in P
+// fÃ¼llt T mit TEXT_LENGTH Anzahl zufÃ¤lliger bytes
+// wÃ¤hlt ein zufÃ¤lliges 'patternLength' langes Muster aus T und speichert es in P
 static void initStr(const size_t patternLength, std::vector<uint8_t>* P, std::vector<uint8_t>* T) {
+	static_assert(ALPHABET_SIZE <= 255, "ALPHABET_SIZE muss <= 255 sein");
 	std::mt19937 rng(5489u); // seed
-	std::uniform_int_distribution<> dist(1, 255); // zufälliges byte im Bereich [1, 255]
+	std::uniform_int_distribution<> dist(1, ALPHABET_SIZE); // zufÃ¤lliges byte im Bereich [1, ALPHABET_SIZE]
 	T->reserve(TEXT_LENGTH);
 	for (size_t i = 0; i < TEXT_LENGTH; i++) {
 		T->push_back(dist(rng));
