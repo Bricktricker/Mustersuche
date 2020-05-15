@@ -9,13 +9,13 @@ Auf der x-Achse ist die Mustergröße von 2 bis 64 bytes.
 Auf der y-Achse die durchschnittliche Laufzeit des Algorithmus in Millisekunden.
 
 Laufzeit mit Alphabet [1, 255]:
-![großes Alphabet](https://github.com/Bricktricker/Mustersuche/blob/master/img/plot_full.jpg?raw=true)
+![254 Alphabet](https://github.com/Bricktricker/Mustersuche/blob/master/img/plot_254.jpg?raw=true)
 
 Laufzeit mit Alphabet [33, 126]:
-![mittleres Alphabet](https://github.com/Bricktricker/Mustersuche/blob/master/img/plot_medium.jpg?raw=true)
+![94 Alphabet](https://github.com/Bricktricker/Mustersuche/blob/master/img/plot_94.jpg?raw=true)
 
 Laufzeit mit Alphabet [1, 16]:
-![mittel kleines Alphabet](https://github.com/Bricktricker/Mustersuche/blob/master/img/plot_med_small.jpg?raw=true)
+![16 kleines Alphabet](https://github.com/Bricktricker/Mustersuche/blob/master/img/plot_16.jpg?raw=true)
 
 Laufzeit mit Alphabet [1, 4]:
-![kleines Alphabet](https://github.com/Bricktricker/Mustersuche/blob/master/img/plot_small.jpg?raw=true)
+![4 Alphabet](https://github.com/Bricktricker/Mustersuche/blob/master/img/plot_4.jpg?raw=true)
